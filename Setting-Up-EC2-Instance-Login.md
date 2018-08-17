@@ -1,28 +1,36 @@
-#A Guide to Getting Started on EC2
+# A Guide to Getting Started on EC2
 
-##Accessing your EC2 instance
+## Accessing your EC2 instance
 
 To log in to an AWS instance use ssh -vi path/to/key.pem ec2-user@ec2-xx-xx-xxx-xxx.compute-1.amazonaws.com.
 
 The key must not be publicly viewable for SSH to work. Use this command if needed:
 
+```sh
 chmod 400 path/to/key.pem
+```
 
-##Creating New Users
+## Creating New Users
 
 After logging into an instance, you can create new users and groups. 
 
 To add a user do 
 
+```sh
 sudo adduser <username>
+```
 
 To give a user a specific password use 
 
+```sh
 sudo passwd <username>
+```
 
-##Allow SSH Login
+## Allow SSH Login
 
-Edit /etc/ssh/sshd_config
+```sh
+vi /etc/ssh/sshd_config
+```
 
 Port 8022 (optional)
 
@@ -30,11 +38,11 @@ PasswordAuthentication yes
 
 service sshd restart
 
-##Managing Users 
+## Managing Users 
 
-Refer: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
+Refer: <https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html>
 
-##Sudo Permissions
+## Sudo Permissions
 
 You can add a user to the sudoers file by editing /etc/sudoers from the root user. 
 
@@ -45,7 +53,9 @@ and uncomment the line below, the one that says # %wheel ALL=(ALL) ALL.
 
 To put your user in the wheel group use 
 
+```sh
 usermod -aG wheel <username>
+```
 
 To test if your user did get sudo permissions, switch to that user with 
 
@@ -53,6 +63,6 @@ su <username>
 
 Type groups. Your user should group should be wheel.
 
-Refer: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch02s03.html
+Refer: <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux_OpenStack_Platform/2/html/Getting_Started_Guide/ch02s03.html>
 
  
