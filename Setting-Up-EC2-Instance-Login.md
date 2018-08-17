@@ -17,13 +17,13 @@ After logging into an instance, you can create new users and groups.
 To add a user do 
 
 ```sh
-sudo adduser <username>
+sudo adduser username
 ```
 
 To give a user a specific password use 
 
 ```sh
-sudo passwd <username>
+sudo passwd username
 ```
 
 ## Allow SSH Login
@@ -54,12 +54,12 @@ and uncomment the line below, the one that says # %wheel ALL=(ALL) ALL.
 To put your user in the wheel group use 
 
 ```sh
-usermod -aG wheel <username>
+usermod -aG wheel username
 ```
 
 To test if your user did get sudo permissions, switch to that user with 
 
-su <username> 
+su username 
 
 Type groups. Your user should group should be wheel.
 
